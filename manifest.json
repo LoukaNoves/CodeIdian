@@ -1,0 +1,11 @@
+{
+	"id": "codeidian",
+	"name": "CodeIdian",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "Un plugin pour gérer et exécuter du code dans Obsidian.",
+	"author": "LoukaNoves",
+	"authorUrl": "https://github.com/LoukaNoves",
+	"main": "main.js"
+  }
+  
