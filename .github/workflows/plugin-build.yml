@@ -26,9 +26,3 @@ jobs:
 
       - name: Build the plugin
         run: npm run build  # Compile le projet TypeScript en JavaScript
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: codeidian-plugin-build
-          path: dist  # Télécharge les fichiers générés dans le dossier 'dist'
