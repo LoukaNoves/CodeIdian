@@ -3,35 +3,32 @@ name: Build and Test CodeIdian Plugin
 on:
   push:
     branches:
-      - main  # Lance cette action lorsqu'un commit est poussé vers la branche 'main'
+      - main
   pull_request:
     branches:
-      - main  # Lance cette action lors d'une Pull Request vers la branche 'main'
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu pour exécuter l'action
+    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Vérifie le code source de ton dépôt
+        uses: actions/checkout@v2  # Vérifie le code source du dépôt
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Utilise Node.js version 16
+          node-version: '16'  # Configure Node.js version 16
 
       - name: Install dependencies
-        run: npm install  # Installe les dépendances du projet
+        run: npm install  # Installe les dépendances
 
       - name: Build the plugin
         run: npm run build  # Compile le projet TypeScript en JavaScript
-
-      - name: Run tests
-        run: npm test  # Si tu as des tests, lance-les ici (optionnel)
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: codeidian-plugin-build
-          path: dist/  # Télécharge les fichiers de build dans le dossier dist/
+          path: dist  # Télécharge les fichiers générés dans le dossier 'dist'
